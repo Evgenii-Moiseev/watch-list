@@ -28,9 +28,24 @@
 ## Доступные скрипты
 
 В каталоге проекта можно выполнить:
-npm install // устанавливает необходимые зависимости
-npm run dev // запускает приложение в режиме разработки
-npm run test // запускает тестирование приложения
-npm run build // запускает продакшн-сборку приложения в папку dist
+- npm install // устанавливает необходимые зависимости
+- npm run dev // запускает приложение в режиме разработки
+- npm run test // запускает тестирование приложения
+- npm run build // запускает продакшн-сборку приложения в папку dist
 
 ## Скриншоты
+
+Главная страница
+<img width="862" height="1091" alt="Главная страница" src="https://github.com/user-attachments/assets/7a0dd68d-652b-4536-9854-a1eb5da56361" />
+
+Страница жанров
+<img width="852" height="1102" alt="Страница жанров" src="https://github.com/user-attachments/assets/eac2ee16-473b-4f70-947a-160aae08366f" />
+
+Аккаунт пользователя
+<img width="960" height="1098" alt="Аккаунт пользователя" src="https://github.com/user-attachments/assets/970bfcd4-a5e0-4eb5-8819-a10f28d379cc" />
+
+Форма регистрации пользователя
+<img width="949" height="1092" alt="Форма регистрации пользователя" src="https://github.com/user-attachments/assets/6a94f9d6-48f5-47a5-adaf-ca96fcc720e0" />
+
+Результаты тестирования форм регистрации и входа
+<img width="1084" height="578" alt="Результаты тестирования форм регистрации и входа" src="https://github.com/user-attachments/assets/66fc6f66-3a67-438e-8f22-567a9fd32989" />
