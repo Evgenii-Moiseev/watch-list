@@ -1,0 +1,105 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @media (max-width: 1199px) {
+    gap: 30px;
+  }
+
+  @include vp-1023 {
+    gap: 20px;
+  }
+
+  &__link {
+    position: relative;
+    outline: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background-color: $color-heliotrope;
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background-color: transparent;
+      display: none;
+
+      @include vp-767 {
+        display: block;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      .main-nav__text {
+        color: $color-melrose;
+      }
+    }
+
+    &:first-of-type {
+      @include vp-767 {
+        display: none;
+      }
+    }
+  }
+
+  &__link.active {
+    pointer-events: none;
+
+    &::after {
+      display: block;
+
+      @include vp-767 {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-white;
+    transition: color 0.3s ease;
+
+    @media (max-width: 1199px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include vp-1023 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    justify-content: center;
+    display: none;
+    color: $color-white;
+
+    @include vp-767 {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.about-movie {
+  padding: 40px 0 120px 0;
+
+  &__title {
+    margin: 0 0 64px 0;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: $color-white;
+
+    @include vp-767 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (max-width: 479px) {
+      align-items: start;
+    }
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-end;
+    font-size: 18px;
+    line-height: 24px;
+    color: $color-white;
+
+    @media (max-width: 479px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  &__feature-caption {
+    display: flex;
+    margin: 0;
+    max-width: 320px;
+    width: 100%;
+
+    @include vp-767 {
+      max-width: 200px;
+    }
+
+    @media (max-width: 479px) {
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-white-50;
+    }
+  }
+
+  &__separator {
+    position: relative;
+    flex-grow: 1;
+
+    @media (max-width: 479px) {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      left: 8px;
+      right: 10px;
+      bottom: 4px;
+      background-image: linear-gradient(
+        90deg,
+        transparent 25%,
+        $color-white-50 25%,
+        $color-white-50 50%,
+        transparent 50%,
+        transparent 75%,
+        $color-white-50 75%,
+        $color-white-50 100%
+      );
+      background-size: 4px 1px;
+    }
+  }
+}

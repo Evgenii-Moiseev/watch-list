@@ -1,0 +1,41 @@
+/* Global */
+/* ------------------- */
+
+@use 'global/_normalize';
+@forward 'global/_variables';
+@use 'global/_mixins';
+@use 'global/_fonts';
+@use 'global/_reboot';
+@use 'global/_container';
+@use 'global/_visually-hidden';
+
+/* Blocks */
+/* ------------------- */
+
+@use 'blocks/_header';
+@use 'blocks/_main-nav';
+@use 'blocks/_search';
+@use 'blocks/_overlay';
+@use 'blocks/_search-field';
+@use 'blocks/_search-card';
+@use 'blocks/_btn';
+@use 'blocks/_movie-intro';
+@use 'blocks/_movie-features';
+@use 'blocks/_about-movie';
+@use 'blocks/_rating';
+@use 'blocks/_top-movies';
+@use 'blocks/_poster-card';
+@use 'blocks/_genres';
+@use 'blocks/_genre';
+@use 'blocks/_genre-card';
+@use 'blocks/_trailer';
+@use 'blocks/_trailer-error';
+@use 'blocks/_modal';
+@use 'blocks/_auth-form';
+@use 'blocks/_user-form';
+@use 'blocks/_form-field';
+@use 'blocks/_account';
+@use 'blocks/_footer';
+@use 'blocks/_social';
+@use 'blocks/_loader';
+@use 'blocks/_data-error';

@@ -1,0 +1,285 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.account {
+  padding: 64px 0 0 0;
+
+  @media (max-width: 1199px) {
+    padding: 32px 0;
+  }
+
+  @include vp-1023 {
+    padding: 16px 0;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 64px;
+
+    @include vp-1023 {
+      gap: 40px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 48px;
+    line-height: 56px;
+    color: $color-white;
+
+    @media (max-width: 1199px) {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    @include vp-1023 {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    @include vp-767 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding: 8px 0;
+
+    @include vp-767 {
+      gap: 24px;
+    }
+  }
+
+  &__tab-text {
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-white;
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__tab-text-mobile {
+    display: none;
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-white;
+
+    @include vp-767 {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include vp-1023 {
+      gap: 40px 30px;
+    }
+
+    @media (max-width: 479px) {
+      flex-wrap: nowrap;
+      width: 100vw;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 36px 20px 25px 20px;
+      gap: 40px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: calc((100% - 160px) / 5);
+
+    @include vp-1023 {
+      width: calc((100% - 90px) / 4);
+    }
+
+    @include vp-767 {
+      width: calc((100% - 30px) / 2);
+    }
+
+    @media (max-width: 479px) {
+      min-width: 224px;
+      width: 100%;
+    }
+  }
+
+  &__link {
+    position: relative;
+    outline: none;
+    z-index: 1;
+
+    &:hover .poster-card,
+    &:focus-visible .poster-card {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 80px 0px $color-blue-marguerite;
+    }
+
+    &:hover + .account__delete-btn {
+      opacity: 1;
+      transform: translate(50%, -50%) scale(1);
+      pointer-events: all;
+    }
+  }
+
+  &__delete-btn {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transform: translate(50%, -50%) scale(0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    touch-action: manipulation;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+
+      @include vp-1023 {
+        display: block;
+      }
+    }
+
+    @include vp-1023 {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &:focus-visible,
+    &:hover {
+      opacity: 1;
+      transform: translate(50%, -50%) scale(1);
+      pointer-events: all;
+    }
+  }
+
+  @media (hover: none) {
+    &__link {
+      &:hover .poster-card,
+      &:hover + .account__delete-btn {
+        transform: none;
+        box-shadow: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: none;
+      }
+    }
+
+    &__delete-btn {
+      &:hover,
+      &:focus-visible {
+        opacity: 0;
+        pointer-events: all;
+        transform: translate(50%, -50%) scale(0.8);
+        transition: none;
+      }
+    }
+  }
+
+  &__favorites-empty {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-white;
+  }
+
+  &__data-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    color: $color-white;
+  }
+
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $color-white-50;
+
+    @include vp-767 {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__label {
+    font-size: 18px;
+    line-height: 24px;
+    color: $color-white;
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-white-50;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-white;
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__btn {
+    min-height: 56px;
+    min-width: 262px;
+  }
+}

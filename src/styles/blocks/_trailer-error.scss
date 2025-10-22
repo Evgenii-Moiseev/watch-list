@@ -1,0 +1,18 @@
+@use '../global/_variables' as *;
+
+.trailer-error {
+  position: relative;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  z-index: 10000;
+  padding: 40px 80px;
+  border-radius: 8px;
+  background-color: $color-cape-cod;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: $color-white;
+}

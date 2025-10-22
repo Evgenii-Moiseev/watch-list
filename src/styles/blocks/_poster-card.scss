@@ -1,0 +1,81 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.poster-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 16px;
+
+  &__wrap {
+    display: flex;
+    border-radius: 16px;
+    outline: 1px solid $color-white-25;
+    box-shadow: 0px 0px 80px 0px $color-white-33;
+    background-color: $color-mine-shaft;
+    overflow: hidden;
+    flex-grow: 1;
+
+    @include vp-767 {
+      box-shadow: 0px 0px 30px 0px $color-white-33;
+    }
+  }
+
+  &__index {
+    position: absolute;
+    left: -12px;
+    top: -12px;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-color: $color-white;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-blue-marguerite;
+
+    @include vp-1023 {
+      padding: 6px 16px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    @include vp-767 {
+      padding: 8px 24px;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__stub {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: $color-woodsmoke;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-white;
+  }
+
+  &__img {
+    width: 224px;
+    max-height: 336px;
+    height: 100%;
+
+    @include vp-767 {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+}

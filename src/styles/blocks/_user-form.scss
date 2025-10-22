@@ -1,0 +1,30 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+  width: 100%;
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+  }
+
+  &__btn {
+    position: relative;
+    flex-shrink: 0;
+    min-height: 56px;
+  }
+
+  &__error {
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-bittersweete;
+  }
+}

@@ -1,0 +1,108 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.top-movies {
+  padding: 40px 0 120px 0;
+
+  @media (max-width: 1199px) {
+    padding: 40px 0 60px 0;
+  }
+
+  @include vp-1023 {
+    padding: 40px 0;
+  }
+
+  @include vp-767 {
+    padding: 32px 0 0 0;
+  }
+
+  &__title {
+    margin: 0 0 64px 0;
+    font-size: 40px;
+    line-height: 48px;
+    color: $color-white;
+
+    @media (max-width: 1199px) {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    @include vp-1023 {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    @include vp-767 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 40px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include vp-1023 {
+      gap: 40px 30px;
+    }
+
+    @include vp-767 {
+      flex-wrap: nowrap;
+      width: 100vw;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 36px 20px 25px 20px;
+      gap: 40px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: calc((100% - 160px) / 5);
+
+    @include vp-1023 {
+      width: calc((100% - 120px) / 5);
+    }
+
+    @include vp-767 {
+      min-width: 224px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    outline: none;
+
+    &:hover .poster-card,
+    &:focus-visible .poster-card {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 80px 0px $color-blue-marguerite;
+    }
+  }
+
+  @media (hover: none) {
+    &__link {
+      &:hover .poster-card,
+      &:hover + .account__delete-btn {
+        transform: none;
+        box-shadow: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: none;
+      }
+    }
+  }
+}

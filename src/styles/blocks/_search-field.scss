@@ -1,0 +1,111 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.search-field {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+
+  @include vp-767 {
+    position: fixed;
+    width: calc(100% - 40px);
+    left: 20px;
+    top: 16px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 52px;
+    border: none;
+    border-radius: 8px;
+    background-color: $color-cape-cod;
+    font-size: 18px;
+    line-height: 24px;
+    color: $color-white-50;
+    outline: none;
+
+    @include vp-1023 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 24px;
+      padding: 16px 52px;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    color: $color-white-50;
+
+    &--active {
+      color: $color-white-80;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__mobile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+  }
+
+  &__close-icon {
+    color: $color-white-50;
+
+    @include vp-767 {
+      color: $color-white;
+    }
+  }
+
+  &__mobile-btn {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background-color: transparent;
+      display: none;
+
+      @include vp-767 {
+        display: block;
+      }
+    }
+  }
+}

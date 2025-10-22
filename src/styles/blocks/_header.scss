@@ -1,0 +1,86 @@
+@use '../global/_mixins' as *;
+
+.header {
+  width: 100%;
+  padding: 24px 0;
+
+  @include vp-767 {
+    padding: 20px 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 143px;
+    height: 32px;
+
+    @include vp-1023 {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 479px) {
+      width: 81px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media (max-width: 1199px) {
+      gap: 30px;
+    }
+
+    @include vp-1023 {
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-grow: 1;
+
+    @media (max-width: 1199px) {
+      gap: 30px;
+    }
+
+    @include vp-767 {
+      flex-grow: 0;
+      margin: 0 0 0 auto;
+      gap: 20px;
+    }
+  }
+
+  &__account-btn {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background-color: transparent;
+      display: none;
+
+      @include vp-767 {
+        display: block;
+      }
+    }
+  }
+}

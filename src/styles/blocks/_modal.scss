@@ -1,0 +1,86 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-black, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease;
+
+  &--visible {
+    background-color: rgba($color-black, 0.5);
+    opacity: 1;
+  }
+
+  &__content {
+    position: relative;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &--visible {
+      opacity: 1;
+    }
+
+    &--video {
+      max-width: 1104px;
+      width: 100%;
+      padding: 0 72px;
+
+      .modal__close-btn {
+        right: 0;
+      }
+
+      @include vp-1023 {
+        padding: 0;
+
+        .modal__close-btn {
+          top: 8px;
+          right: 8px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    right: -72px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+
+    @include vp-1023 {
+      top: 8px;
+      right: 8px;
+    }
+  }
+}
+
+.modal--visible .trailer {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal--visible .trailer-error {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal--visible .auth-form {
+  opacity: 1;
+  transform: scale(1);
+}

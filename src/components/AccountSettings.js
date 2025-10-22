@@ -1,0 +1,8 @@
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { getUserInitials } from '../utils/getUserInitials';
+import EmailIcon from '../assets/svg/email-icon.svg?react';
+import { Button } from '../ui/Button';
+import { Loader } from '../components/Loader';
+export const AccountSettings = ({ user, isLoading, onLogout, }) => {
+    return (_jsxs(_Fragment, { children: [_jsxs("div", { className: "account__data-wrap", children: [_jsxs("div", { className: "account__feature", children: [_jsx("span", { className: "account__icon-wrap", children: getUserInitials(user.name, user.surname) }), _jsxs("div", { className: "account__user-data", children: [_jsx("span", { className: "account__label", children: "\u0418\u043C\u044F \u0424\u0430\u043C\u0438\u043B\u0438\u044F" }), _jsx("span", { className: "account__text", children: `${user.name} ${user.surname}` })] })] }), _jsxs("div", { className: "account__feature", children: [_jsx("span", { className: "account__icon-wrap", children: _jsx(EmailIcon, { className: "account__icon", width: 24, height: 24 }) }), _jsxs("div", { className: "account__user-data", children: [_jsx("span", { className: "account__label", children: "\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430" }), _jsx("span", { className: "account__text", children: user.email })] })] })] }), _jsx(Button, { className: "account__btn btn btn--primary", type: "button", isLoading: isLoading, onClick: onLogout, children: isLoading ? _jsx(Loader, { modifier: "loader--btn" }) : 'Выйти из аккаунта' })] }));
+};

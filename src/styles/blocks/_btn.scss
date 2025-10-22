@@ -1,0 +1,142 @@
+@use '../global/_variables' as *;
+@use '../global/_mixins' as *;
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 28px;
+  outline: none;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: $color-white;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  @include vp-1023 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &--primary {
+    padding: 15px 46px;
+    background-color: $color-cornflower-blue;
+    border: 1px solid $color-cornflower-blue;
+
+    @include vp-1023 {
+      padding: 12px 28px;
+    }
+
+    @media (max-width: 479px) {
+      width: 100%;
+      padding: 15px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-fiord;
+      border: 1px solid $color-fiord;
+    }
+  }
+
+  &--secondary {
+    padding: 15px 46px;
+    background-color: $color-cape-cod;
+    border: 1px solid $color-black-40;
+
+    @include vp-1023 {
+      padding: 12px 28px;
+    }
+
+    @media (max-width: 479px) {
+      flex-grow: 1;
+      padding: 15px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-boulder;
+    }
+  }
+
+  &--icon {
+    padding: 15px 21px;
+    background-color: $color-mine-shaft;
+    border: 1px solid $color-black-40;
+
+    @include vp-1023 {
+      padding: 10px 14px;
+    }
+
+    @media (max-width: 479px) {
+      padding: 15px 21px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-boulder;
+    }
+  }
+
+  &--black-font {
+    color: $color-black;
+  }
+
+  &--XL-font {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-melrose;
+    }
+
+    @media (max-width: 1199px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include vp-1023 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    display: none;
+    content: '';
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background-color: $color-heliotrope;
+  }
+
+  &--active {
+    pointer-events: none;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  &__text {
+    @include vp-767 {
+      display: none;
+    }
+  }
+}
